@@ -3,8 +3,18 @@ An education app that elementary school teachers can use to help teach their stu
 The app allows students to virtually roll two dice. The values of the dice will be displayed to the students, and the app will then ask students to input either the sum of the two dice or the difference between the two dice. 
 Students are told whether their answer was correct or not.
 """
+from app_functions import roll_die
+from app_functions import get_question_type
+from app_functions import print_question
+from app_functions import input_answer
+from app_functions import print_error_message
+from app_functions import is_correct_answer
+from app_functions import print_congratulations
+from app_functions import print_correct_answer
 
-import app_functions
+
+
+
 
 
 def main():
@@ -23,6 +33,16 @@ def main():
     print("Welcome to the Math App!!!")
     print("")  # line break
     ### write code to complete this function BELOW here ###
+    print_question(roll_die, roll_die, get_question_type)
+    input_answer()
+    if input_answer() == "-1":
+        print_error_message()
+    else:
+        if is_correct_answer() == True:
+            print_congratulations()
+        if is_correct_answer() == False:
+            print_correct_answer()
+
 
     ### write code to complete this function ABOVE here ###
     print("")  # line break
